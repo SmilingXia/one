@@ -45,7 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //实现更新课程的通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCourse:) name:ZDY_GX_KECHENG_MENLEI object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCourseShixian:) name:ZDY_GX_KECHENG_MENLEI object:nil];
     self.XJFCourseCategoriesVO = [ZDYDateStorageDanli initialization].XZCourse;
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self lastSubView];
@@ -147,7 +147,7 @@
 }
 
 
--(void)updateCourse:(NSNotification *)sender{
+-(void)updateCourseShixian:(NSNotification *)sender{
     NSMutableDictionary *datiinfo = [NSMutableDictionary dictionaryWithDictionary:[sender userInfo]];
     self.XJFCourseCategoriesVO = nil;
     self.XJFCourseCategoriesVO = [datiinfo objectForKey:@"ZDYCourseCategoriesVO"];

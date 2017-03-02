@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "XJFCommonmacro.h"
+#import "MBProgressHUD.h"
+#import "ZDYUIAlertView.h"
 
 typedef void(^ReturnSuccessData)(NSDictionary *);
 
@@ -15,6 +17,7 @@ typedef enum {
     ZDYNetworkRequestLogin = 0,             //登录
     ZDYNetworkRequestCourseInfo,            //课程信息
     ZDYNetworkRequestCheckcourse,           //检查课程页面信息
+    ZDYNetworkRequestFaXian,                //发现
 }NetworkRequestTag;
 
 

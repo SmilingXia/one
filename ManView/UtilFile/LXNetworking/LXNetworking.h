@@ -43,7 +43,7 @@ typedef NSURLSessionTask LXURLSessionTask;
 /**
  *  单例
  *
- *  @return
+ *  @
  */
 + (LXNetworking *)sharedLXNetworking;
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UrlNSstring.h"
 
 typedef void (^coverDidRomove)();
 

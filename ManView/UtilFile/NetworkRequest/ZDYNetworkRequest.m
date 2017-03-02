@@ -8,8 +8,6 @@
 
 #import "ZDYNetworkRequest.h"
 #import "LXNetworking.h"
-#import "MBProgressHUD.h"
-#import "ZDYUIAlertView.h"
 #import "ZDYjiancheVO.h"
 
 
@@ -36,13 +34,22 @@
         case ZDYNetworkRequestCheckcourse:
             urlString = COURSE_GONGNEN_URL;
             break;
+        case ZDYNetworkRequestFaXian:
+            urlString = REQUESTPUBLICURL;
+            break;
         default:
             break;
     }
-    [self qingqiu:parameter andUrl:urlString];
+    if (self.requestTag != ZDYNetworkRequestFaXian) {
+        [self qingqiuPost:parameter andUrl:urlString];
+    }else{
+        [self qingqiuGet:parameter andUrl:urlString];
+    }
+    
 }
 
-- (void)qingqiu:(NSDictionary *)parameter andUrl:(NSString *)urlString{
+#pragma mark - post请求
+- (void)qingqiuPost:(NSDictionary *)parameter andUrl:(NSString *)urlString{
     _task = [LXNetworking postWithUrl:urlString params:parameter success:^(NSDictionary *dic) {
         ZDYjiancheVO *vo = [[ZDYjiancheVO alloc] initWithDictionary:dic error:nil];
         if ([vo.errcode isEqualToString:@"0"]) {
@@ -56,6 +63,18 @@
         [MBProgressHUD dissmiss];
     } showHUD:NO];
 }
+
+
+#pragma mark - Get请求
+- (void)qingqiuGet:(NSDictionary *)parameter andUrl:(NSString *)urlString{
+    _task = [LXNetworking getWithUrl:urlString params:parameter success:^(NSDictionary *dic) {
+        _returnSuccessData(dic);
+    } fail:^(NSError *error) {
+        [ZDYUIAlertView jianDanAlertView:@"请求失败"];
+        [MBProgressHUD dissmiss];
+    } showHUD:NO];
+}
+
 
 
 @end

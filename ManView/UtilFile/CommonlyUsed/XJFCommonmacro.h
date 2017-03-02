@@ -100,6 +100,35 @@ typedef enum {
 
 
 
+/**
+ * accessToken -- 发现请求中的accessToken
+ */
+#define ACCESSTOKEN @"2.00NofgBD0L1k4pc584f79cc48SKGdD"
+
+/**
+ * 请求公共微博的网络接口
+ */
+#define REQUESTPUBLICURL @"https://api.weibo.com/2/statuses/public_timeline.json"
+
+#define SOURCE @"source"
+#define TOKEN @"access_token"
+#define COUNT @"count"
+
+#define STATUSES @"statuses"
+#define CREATETIME @"created_at"
+#define WEIBOID @"id"
+#define WEIBOTEXT @"text"
+#define USER @"user"
+#define UID @"id"
+#define HEADIMAGEURL @"profile_image_url"
+#define USERNAME @"screen_name"
+
+
+
+
+
+
+
 
 
 
